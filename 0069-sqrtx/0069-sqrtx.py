@@ -16,5 +16,5 @@ class Solution:
             else:
                 rt = md - 1
                 
-        return ans
+        return lt-1
         
