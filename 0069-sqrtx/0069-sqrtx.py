@@ -12,7 +12,6 @@ class Solution:
                 return md
             elif md*md < x:
                 lt  = md + 1
-                ans = md
             else:
                 rt = md - 1
                 
