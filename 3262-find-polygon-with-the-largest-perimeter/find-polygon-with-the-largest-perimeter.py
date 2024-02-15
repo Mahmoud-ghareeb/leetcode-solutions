@@ -4,9 +4,7 @@ class Solution:
         n = len(nums)
         if n<3: return -1
         s = sum(nums)
-        print(nums, s)
         for i, num in enumerate(nums):
-            print(i, num, s)
             if num < (s-num):
                 return s
             if i > (n-3):
