@@ -12,7 +12,6 @@ class Solution:
             while True:
                 if f_p1: p1 += 1
                 if f_p2: p2 -= 1
-
                 if s[p1] != s[p1-1]: f_p1 = 0
                 if s[p2] != s[p2+1]: f_p2 = 0
                 if f_p1 == 0 and f_p2 == 0: break
