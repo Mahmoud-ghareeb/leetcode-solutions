@@ -8,11 +8,11 @@ class Solution:
         sol = ""
         for i in order:
             if i in d:
-                sol += (i) * d[i]
+                sol += (i * d[i])
                 d.pop(i)
         
         for i in d:
-            sol += (i) * d[i]
+            sol += (i * d[i])
 
         return sol
     
