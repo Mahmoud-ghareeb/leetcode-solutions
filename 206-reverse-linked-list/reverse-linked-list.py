@@ -10,13 +10,16 @@ class Solution:
         if not head.next:
             return head
 
-        reversed_linked_list = ListNode(head.val)
-    
-        while head.next:
-            head = head.next
-            node = ListNode(head.val, reversed_linked_list)
-            reversed_linked_list = node
-        return reversed_linked_list
+        def rec(node, prev):
+            if not node:
+                return prev
+
+            temp = ListNode(node.val, prev)
+            prev = temp
+
+            return rec(node.next, prev)
+
+        return rec(head.next, ListNode(head.val))
             
 
             
