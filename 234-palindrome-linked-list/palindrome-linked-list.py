@@ -6,30 +6,38 @@
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
 
-        s = []
+        slow = head
+        fast = head
 
-        while head.next:
-            s.append(head.val)
-            head = head.next
-        s.append(head.val)
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
 
-        n = len(s)
+        rev = self.reverse(slow)
 
-        if n%2 == 0:
-            lt = n//2 - 1
-            rt = n//2
-        else:
-            lt = n//2
-            rt = n//2
-            
-        while lt>=0:
-            if s[lt] != s[rt]:
+        while rev:
+            if rev.val != head.val:
                 return False
-            lt -=  1
-            rt += 1
+
+            rev = rev.next
+            head = head.next
+
+        return True
+
 
 
         return True
+
+    def reverse(self, head: ListNode) -> ListNode:
+        prev = None
+        curr = head
+        while curr:
+            next_temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next_temp
+        return prev
+        
 
 
         
