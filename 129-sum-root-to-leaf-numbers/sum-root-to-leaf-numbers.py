@@ -14,7 +14,7 @@ class Solution:
             path += str(node.val)
 
             if not node.left and not node.right:
-                pths.append(path)
+                pths.append(int(path))
 
 
             dfs(node.left, path)
@@ -23,10 +23,7 @@ class Solution:
 
         dfs(root, "")
 
-        sol = 0
-        for i in pths:
-            sol += int(i)
 
-        return sol
+        return sum(pths)
 
         
