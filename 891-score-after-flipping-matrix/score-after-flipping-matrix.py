@@ -16,7 +16,7 @@ class Solution:
             for i in range(n):
                 if grid[i][j] == 0:
                     cnt += 1
-            print(cnt)
+                    
             return cnt
 
         for i in range(n):
