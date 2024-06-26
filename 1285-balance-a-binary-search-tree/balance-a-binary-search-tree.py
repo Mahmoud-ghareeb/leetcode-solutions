@@ -48,10 +48,10 @@ class Solution:
                 if n == 0:
                     return
 
-                if n%2 == 0:
-                    idx = len(c)//2 -1
-                else:
-                    idx = len(c)//2
+                # if n%2 == 0:
+                #     idx = len(c)//2 -1
+                # else:
+                idx = len(c)//2
 
                 s_nodes.append(c[idx])
 
