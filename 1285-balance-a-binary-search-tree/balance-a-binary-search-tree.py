@@ -12,13 +12,13 @@ class Solution:
             v = []
             def dfs(node):
                 if not node: return 0
-                v.append(node.val)
 
                 dfs(node.left)
+                v.append(node.val)
                 dfs(node.right)
             dfs(root)
 
-            return sorted(v)
+            return v
 
         nodes = extract_values(root)
 
@@ -48,9 +48,6 @@ class Solution:
                 if n == 0:
                     return
 
-                # if n%2 == 0:
-                #     idx = len(c)//2 -1
-                # else:
                 idx = len(c)//2
 
                 s_nodes.append(c[idx])
