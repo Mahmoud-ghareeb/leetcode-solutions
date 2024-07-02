@@ -7,7 +7,6 @@ class Solution:
 
         res = []
         for i in e:
-            print(n1[i], n2[i], [i])
             res.extend(min(n1[i], n2[i]) * [i])
         
         return res
