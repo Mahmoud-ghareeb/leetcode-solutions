@@ -8,5 +8,3 @@ class Solution:
                 break
 
         return sol
-        # return numBottles + (numBottles//numExchange) + (((numBottles//numExchange) + (numBottles%numExchange))//numExchange)
-        
