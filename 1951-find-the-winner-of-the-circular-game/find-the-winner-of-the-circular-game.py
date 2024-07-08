@@ -10,8 +10,6 @@ class Solution:
             start = (cadidate-1)%n
             n -= 1
 
-            print(l, cadidate, start)
-
         return l[0]
 
         
