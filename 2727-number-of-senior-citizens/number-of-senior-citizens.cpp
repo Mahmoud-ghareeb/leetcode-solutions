@@ -3,7 +3,7 @@ public:
     int countSeniors(vector<string>& details) {
 
         int sol = 0;
-        for (auto i: details)
+        for (string& i: details)
         {
             if (std::stoi(i.substr(11,2)) > 60)
             {
