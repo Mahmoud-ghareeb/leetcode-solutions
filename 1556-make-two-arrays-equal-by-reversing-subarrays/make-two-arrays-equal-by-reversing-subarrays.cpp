@@ -5,15 +5,7 @@ public:
         map<int, int> m;
         for(auto &i: arr)
         {
-            if (m.find(i) == m.end())
-            {
-                m.insert({i, 1});
-            }
-            else
-            {
-                int temp = m[i];
-                m[i] = temp+1;
-            }
+            m[i]++;
         }
             
 
