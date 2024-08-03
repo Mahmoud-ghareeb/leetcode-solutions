@@ -2,16 +2,33 @@ class Solution {
 public:
     bool canBeEqual(vector<int>& target, vector<int>& arr) {
 
-        multiset<int> s1;
-        multiset<int> s2;
-
+        map<int, int> m;
         for(auto &i: arr)
-            s1.insert(i);
+        {
+            if (m.find(i) == m.end())
+            {
+                m.insert({i, 1});
+            }
+            else
+            {
+                int temp = m[i];
+                m[i] = temp+1;
+            }
+        }
+            
 
         for(auto &i: target)
-            s2.insert(i);
+        {
+            if (m.find(i) == m.end())
+                return false;
+            if (m[i] == 0)
+                return false;
 
-        return s1 == s2;
+            m[i] -= 1; 
+        }
+            
+
+        return true;
         
     }
 };
