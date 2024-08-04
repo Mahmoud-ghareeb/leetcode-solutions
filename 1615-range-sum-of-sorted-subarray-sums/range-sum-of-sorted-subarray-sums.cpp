@@ -3,7 +3,7 @@ public:
     int rangeSum(vector<int>& nums, int n, int left, int right) {
 
         multiset<int> s;
-        const int MOD = static_cast<long long>(std::pow(10, 9)) + 7;
+        const int MOD = static_cast<int>(std::pow(10, 9)) + 7;
 
         for(int i=0; i<n; i++)
         {
