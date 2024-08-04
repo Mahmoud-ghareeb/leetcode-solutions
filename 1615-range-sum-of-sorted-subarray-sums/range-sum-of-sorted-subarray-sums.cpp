@@ -28,6 +28,6 @@ public:
             it ++;
         }
 
-        return sol % MOD;
+        return sol;
     }
 };
