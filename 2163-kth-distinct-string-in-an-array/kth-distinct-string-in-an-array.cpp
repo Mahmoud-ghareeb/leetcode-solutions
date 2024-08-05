@@ -7,14 +7,10 @@ public:
         for (auto &i : arr)
             m[i]++;
 
-        int x = 0;
         for (auto &i : arr)
-        {
-            if (m[i] == 1 && ++x && x == k)
+            if (m[i] == 1 && --k == 0)
                 return i;
-        }
 
-        return "";
-        
+        return "";  
     }
 };
