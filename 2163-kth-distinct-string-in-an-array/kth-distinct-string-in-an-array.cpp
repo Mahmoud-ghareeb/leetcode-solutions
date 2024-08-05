@@ -10,12 +10,8 @@ public:
         int x = 0;
         for (auto &i : arr)
         {
-            if (m[i] == 1)
-                ++x;
-
-            if (x == k)
+            if (m[i] == 1 && ++x && x == k)
                 return i;
-           
         }
 
         return "";
