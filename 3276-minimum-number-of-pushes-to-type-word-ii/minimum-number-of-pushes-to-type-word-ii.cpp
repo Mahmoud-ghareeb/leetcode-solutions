@@ -19,8 +19,8 @@ public:
         for(auto &r : v)
         {
             if (i % 8 == 0)
-                mul += 1;
-                
+                ++mul;
+
             sol += (mul * r.second);
             ++i;
         }
