@@ -51,9 +51,4 @@ class Solution:
                     sol += 1
 
         return sol
-            
-
-            
-
-        return 0
         
