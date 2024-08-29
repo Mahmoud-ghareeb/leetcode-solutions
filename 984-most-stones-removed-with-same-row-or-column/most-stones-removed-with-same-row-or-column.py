@@ -9,7 +9,7 @@ class Solution:
         def dfs(i, j, c):
             if d.get((i, j), 0) != 1: return 0
 
-            d[(i, j)] += 1
+            d[(i, j)] = 0
 
             for k, l in d:
                 if l == j and d.get((k, l), 0) == 1:
