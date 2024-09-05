@@ -17,7 +17,7 @@ class Solution:
             candidate.append(temp)
 
         pos -= neg
-        
+
         for i in range(n):
             if pos == 0: return candidate
 
