@@ -19,8 +19,6 @@ class Solution:
                 candidate[i] = 1
 
         pos -= neg
-
-        # print(candidate, pos)
         
         for i in range(n):
             if pos == 0: return candidate
