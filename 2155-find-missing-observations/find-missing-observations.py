@@ -4,19 +4,17 @@ class Solution:
         s = sum(rolls)
         candidate = []
 
+        pos, neg = 0, 0
         for i in range(1, n+1):
             temp = mean * (m + i) - s
             s += temp
+            if temp > 6:
+                pos += temp - 6
+                temp = 6
+            elif temp < 1:
+                neg += (1 + abs(temp))
+                temp = 1
             candidate.append(temp)
-
-        pos, neg = 0, 0
-        for i in range(n):
-            if candidate[i] > 6:
-                pos += candidate[i] - 6
-                candidate[i] = 6
-            elif candidate[i] < 1:
-                neg += (1 + abs(candidate[i]))
-                candidate[i] = 1
 
         pos -= neg
         
