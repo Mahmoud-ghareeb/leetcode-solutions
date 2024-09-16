@@ -11,7 +11,7 @@ class Solution:
             timePoints[i] = m
 
         t = sorted(timePoints)
-        print(t)
+        # print(t)
         for i in range(1, n):
             sol = min(sol, t[i]-t[i-1])
 
