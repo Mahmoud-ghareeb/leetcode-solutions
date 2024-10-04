@@ -16,7 +16,6 @@ class Solution:
 
             tmp = (key-i)
             if tmp not in space or (tmp == i and space[tmp] <= 1) or space[tmp] <= 0:
-                print(tmp)
                 return -1
 
             space[tmp] -= 1
