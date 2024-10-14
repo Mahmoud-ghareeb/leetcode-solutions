@@ -3,7 +3,7 @@ class Solution:
         
         heap = [-1 * num for num in nums]
         heapq.heapify(heap)
-        print ("The created heap is : ",(list(heap)))
+        
         sol = 0
 
         for i in range(k):
