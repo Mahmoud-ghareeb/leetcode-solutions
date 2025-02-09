@@ -8,7 +8,6 @@ class Solution:
         sol = 0
 
         def spc_fact(n):
-            # if n == 1: return 0
             tmp = 0
             for i in range(n-1, 0, -1):
                 tmp += i
