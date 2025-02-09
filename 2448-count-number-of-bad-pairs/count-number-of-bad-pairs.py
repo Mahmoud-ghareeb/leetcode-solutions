@@ -12,7 +12,6 @@ class Solution:
             tmp = 0
             for i in range(n-1, 0, -1):
                 tmp += i
-                print(i, tmp)
             
             return tmp
 
