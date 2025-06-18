@@ -1,30 +1,22 @@
 class Solution:
     def divideArray(self, nums: List[int], k: int) -> List[List[int]]:
-        n = len(nums)
+
+        if len(nums)%3 != 0:
+            return []
+
         nums.sort()
-        sol = []
-        for i, num in enumerate(nums):
-            if i == 0:
-                j, temp = 1, [num]
-            elif j >= 3:
-                sol.append(temp)
-                j = 1
-                temp = [num]
-            elif num - temp[0] <= k:
-                temp.append(num)
-                j += 1
-            else:
+
+        results = []
+
+        for i in range(len(nums)//3):
+            idx = i*3
+            tmp = nums[idx:idx+3]
+            if tmp[2] - tmp[0] > k:
                 return []
 
-            # print(temp)
-        sol.append(temp)
+            results.append(tmp)
 
-        return sol
 
-            
-            
-
-            
-
+        return results 
 
         
