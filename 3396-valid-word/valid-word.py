@@ -14,7 +14,4 @@ class Solution:
             if i.lower() in vowels: v = True
             elif i not in string.digits: c=True
 
-        if v and c:
-            return True
-
-        return False
+        return v and c
