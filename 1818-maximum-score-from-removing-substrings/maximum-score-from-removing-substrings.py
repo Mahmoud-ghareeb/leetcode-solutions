@@ -1,33 +1,43 @@
 class Solution:
     def maximumGain(self, s: str, x: int, y: int) -> int:
-        res = 0
-        if y > x:
-            top = "ba"
-            top_score = y
-            bot = "ab"
-            bot_score = x
-        else:
-            top = "ab"
-            top_score = x
-            bot = "ba"
-            bot_score = y
+        total_score = 0
+        high_priority_pair = "ab" if x > y else "ba"
+        low_priority_pair = "ba" if high_priority_pair == "ab" else "ab"
 
-        # removing first top substrings cause they give more points
-        stack: list[str] = []
-        for char in s:
-            if char == top[1] and stack and stack[-1] == top[0]:
-                res += top_score
-                stack.pop()  # delete first char of this substring
+        # First pass: remove high priority pair
+        string_after_first_pass = self.remove_substring(s, high_priority_pair)
+        removed_pairs_count = (len(s) - len(string_after_first_pass)) // 2
+
+        # Calculate score from first pass
+        total_score += removed_pairs_count * max(x, y)
+
+        # Second pass: remove low priority pair
+        string_after_second_pass = self.remove_substring(
+            string_after_first_pass, low_priority_pair
+        )
+        removed_pairs_count = (
+            len(string_after_first_pass) - len(string_after_second_pass)
+        ) // 2
+
+        # Calculate score from second pass
+        total_score += removed_pairs_count * min(x, y)
+
+        return total_score
+
+    def remove_substring(self, input: str, target_pair: str) -> str:
+        char_stack = []
+
+        # Iterate through each character in the input string
+        for current_char in input:
+            # Check if current character forms the target pair with the top of the stack
+            if (
+                current_char == target_pair[1]
+                and char_stack
+                and char_stack[-1] == target_pair[0]
+            ):
+                char_stack.pop()  # Remove the matching character from the stack
             else:
-                stack.append(char)
+                char_stack.append(current_char)
 
-        # removing bot substrings cause they give less or equal amount of scores
-        new_stack: list[str] = []
-        for char in stack:
-            if char == bot[1] and new_stack and new_stack[-1] == bot[0]:
-                res += bot_score
-                new_stack.pop()
-            else:
-                new_stack.append(char)
-
-        return res
+        # Reconstruct the remaining string after removing target pairs
+        return "".join(char_stack)
