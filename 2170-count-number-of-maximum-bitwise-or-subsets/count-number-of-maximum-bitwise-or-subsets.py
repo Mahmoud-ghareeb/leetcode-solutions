@@ -1,25 +1,25 @@
 class Solution:
     def countMaxOrSubsets(self, nums: List[int]) -> int:
 
-        max_n = 0
+        nums.sort(reverse=True) 
 
-        for i in nums:
-            max_n = max_n | i
+        max_or = 0
+        for num in nums:
+            print(num)
+            max_or |= num
 
-        n = len(nums)
-        @cache
-        def recur(cur_or, i):
-            if i == n and cur_or != max_n:
-                return 0
-            if cur_or == max_n:
-                return 2 ** (n-i)
+        result = []
+
+        for r in range(1, len(nums) + 1):
+            result.extend(combinations(nums, r))
+        res = 0
+        for i in result:
+            tmp = 0
+            for j in i:
+                tmp |= j
+            if tmp == max_or:
+                res += 1
+
+
+        return res
             
-            cnt = 0
-            cnt += recur(cur_or|nums[i], i+1)
-            cnt += recur(cur_or, i+1)
-            return cnt
-
-        return recur(0, 0)
-
-
-        
