@@ -1,7 +1,6 @@
 class Solution:
     def countMaxOrSubsets(self, nums: List[int]) -> int:
 
-        nums.sort(reverse=True) 
 
         max_or = 0
         for num in nums:
